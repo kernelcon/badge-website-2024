@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[a]nalyze [i]nternet badge | kernelcon 2024</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+  <link href="css/cover.css" rel="stylesheet">
+</head>
+
+<body class="d-flex h-100 text-center text-bg-dark">
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">[a]nalyze [i]nternet badge</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link fw-bold py-1 px-0" href="about.html">About</a>
+          <a class="nav-link fw-bold py-1 px-0" href="ibom.html">Interactive BOM</a>
+          <a class="nav-link fw-bold py-1 px-0 active" href="activities.html">Activities</a>
+          <a class="nav-link fw-bold py-1 px-0" href="past_badges.html">Past Badges</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="px-3">
+        <li><a href="#assemble">How to Remove Remote and Re-Assemble</a></li>
+        <li><a href="#make">How to Make a Cable</a></li>
+        <li><a href="#test">How to Test a Cable</a></li>
+        <li><a href="#modify">How to Modify the 555 timer Circuit</a></li>
+        </br>
+        <h3 id="assemble">How to Remove Remote and Re-Assemble</h3>
+          <p>Break off remote</p>
+          <p>put 3d print on</p>
+        <h3 id="make">How to Make a Cable</h3>
+          <img class="img-fluid" src="activites_images/make1.jpg">
+          <img class="img-fluid" src="activites_images/make2.jpg">
+          <img class="img-fluid" src="activites_images/make3.jpg">
+          </br></br>
+        <h3 id="test">How to Test a Cable</h3>
+          <li>Connect cable to head and remote</li> 
+          <li>Turn on badge</li> 
+          <li>Observe lights</li> 
+        </br></br>
+        <h3 id="modify">How to Modify the 555 timer Circuit</h3>
+          <p>The badge uses a 555 timer in an astable configuration to create a pulse that in turn increments the 4017, such that a new line of the LAN cable is tested. More details on the <a href="about.html">about page</a>. In an astable circuit, the output voltage alternates between high and low on a continuous basis, without any interraction. This oscillation is controlled by the values of 3 passive components: 1 capacitor and 2 resistors. Varying the parts with make it oscillate faster or slower! Here is an astable configured circuit:</p>
+          <img class="img-fluid" src="activites_images\astable-555-circuit.webp"></br></br>
+          <p> Using the schematic on the <a href="about.html">about page</a> and <a href="ibom.html">intereactive BOM</a> (or your badge), can you figure out which components on the badge control the oscillation?</p>
+          <details>
+            <summary>Click for Answer</summary>
+              <p>R1, R2, and C2 are the components on the back of the badge, at the top!</p>
+          </details>
+        </br></br>
+          <p> Using the <a href="ibom.html">intereactive BOM</a>, can you figure out their values?</p>
+          <details>
+            <summary>Click for Answer</summary>
+              <p>R1 = 10k Ω, R2 = 150k Ω, and C2 = 4.7 uF</p>
+          </details>
+        </br></br>
+        <p>Scour the web to find a 555 astable calculator. Can you use it to figure out how fast the pulse should be with those values? You may need to do some SI unit conversions depending on the calculator!</p>
+        <details>
+          <summary>Click for Answer</summary>
+            <p>roughly 1 hz... aka about a half second on and off, with one full cycle taking 1 second</p>
+        </details>
+      </br></br>
+      <p>You now should have a decent understanding how the 555 timer is configured on your badge! Play with the calculator you found to theoritically see how fast or slow you could get your badge to oscillate!</p>
+      <p>Enough theory... now's the time to do it for real! Head over the the hardware hacking village if you are not already there! </p> 
+      <p>First decide what changes you are going to make using your 555 calculator. Creativity and experimentation with the calculator can limit how many parts you need to remove/add. Work with the village volunteers to verify we have the parts you want to use before preceding! You may need to change your plans depending on what is available. Don't start removing things until you have the replacement parts in hand.</p>
+      <p>With your parts in hand, you can now remove the parts you want to change. Before you start, ensure your badge is OFF! The badge uses surface mount parts. To remove, use a globular amount (technical term) of solder on your iron, such that both soldered ends of the part you wish to remove are being touched/heated by the glob. Then simply swipe the part off! More than likely the small part is stuck on the glob on the iron, have tweezers ready to flick it off. Or use a tip cleaning sponge to remove.</p>
+      <img class="img-fluid" src="activites_images\removal.gif">
+      <p>Now its time to add the new part! For ease, these parts a through-hole parts. They are meant to go through holes on the PCB (printed circuit board), but for our purposes we will be soldering them to the surface mount pads. Bend and trim the legs of your new part such that they are well positioned for both sides of the surface pads. You can make this as tidy or as messy as you want! Solder one leg. Now readjust the second leg, and solder it! Booya! New part is on!</p>
+      <img class="img-fluid" src="activites_images\add.gif">
+      <p>Now turn your badge on and bask in the glory of your newly modifed badge! Pretty cool huh? Nice work!</p>
+      <img class="img-fluid" src="activites_images\speedtest.gif">
+      <p>I hear there is a CTF challenge that has to do with the 555 timing circuit...</p>
+      </main>
+  
+      <footer class="mt-auto text-white-50">
+        <p>kernelcon 2024 | zonksec</p>
+      </footer>
+    </div>
+  </body>
+  
+  </html>

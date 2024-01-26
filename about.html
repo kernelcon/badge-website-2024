@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[a]nalyze [i]nternet badge | kernelcon 2024</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+    <link href="css/cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">[a]nalyze [i]nternet badge</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="index.html">Home</a>
+        <a class="nav-link fw-bold py-1 px-0 active" href="about.html">About</a>
+        <a class="nav-link fw-bold py-1 px-0" href="ibom.html">Interactive BOM</a>
+        <a class="nav-link fw-bold py-1 px-0" href="activities.html">Activities</a>
+        <a class="nav-link fw-bold py-1 px-0" href="past_badges.html">Past Badges</a>
+      </nav>
+    </div>
+  </header>
+
+    <main class="px-3">
+      <p>&nbsp;</p>
+      <h3>About The Badge</h3>
+      <p>Just like last year's badge, this badge has kept it old school... no microcontrollers! The "brains" of the badge are a 555 timer and a 4017 decade counter. These are used to test one line of a LAN cable at a time. There are two sets of LEDs on the badge, one on the head and one on the remote. The head LED indicates which line is being tested and the remote LED shows where that test signal appeared on the other end to ensure proper order. Head over to the activities portion of the site <a href="activities.html#make">learn how to test a cable</a>!
+      <h3>Technical Bits</h3>
+      <p>The 555 timer is in astable configuration, creating a 1 hz pulse. This pulse increments the 4017, which changes which output is pulled high. The remaining outputs have ground potential. Each output is connected to one pin of the RJ45 jack, and the last output is connected to reset of the 4017 to make the count start over. This setup sends a voltage down 1 line of the cable at a time, in order, and then starts over.</p>
+      <p>Now here is where the <i>magic</i> is!</p> 
+      <p>Using a network of diodes (electronic's favorite one-way valve) each line of the cable is capable of being tested itself AND as a ground return path to support the testing of other lines. This way the remote end can simply connected all lines of the cable together! The line under test can then use any of the other lines to find a path back to ground, completing the circuit, and thus lighting some well placed LEDs to display what line is being tested and where the signal appeared on the other end. Ahhhh the elegance of analog circuits! :) </p>
+      <h3>Manufacturing</h3>
+      <p>The badge was designed and prototyped by zonksec (Tyler Rosonke). Assembly was done by <a href="https://cybercitycircuits.com/">Cyber City
+        Circuits</a> in Augusta, GA.</p>
+      <h3>Schematic</h3>
+      <p>Yes. It's a bit hard to read on this page. <a href="badge_schematic.png" target="_blank">Open it in a new
+          tab</a> or <a href="badge_schematic.pdf" target="_blank">get a PDF</a>.</p>
+      <p><img class="img-fluid" src="badge_schematic.png" /></p>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+      <p>kernelcon 2024 | zonksec</p>
+    </footer>
+  </div>
+</body>
+
+</html>
