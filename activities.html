@@ -96,19 +96,21 @@
           <li>Connect the cable you want to test to the head and the remote of the badge.</li> 
           <li>Next, turn on the badge.</li> 
           <li>Now, observe the lights!</li> 
-          <li>The bank of lights on the head (top) indicate which line of the cable is being tested. If there is no continuity for that line, it will not light! This would mean your cable has an issue and needs to be investigated and fixed! If there is continuity, a light will be lit on the remote bank of lights (bottom). This bank indicates where the line is connected on the other end. This line # should be the same on the top and bottom (for non-crossover cables). If it's not, the cable end's ordering is incorrect and needs to be fixed! If multiple lights are lit on the bottom, then there is a short between lines and needs to be fixed!</li>
+          <li>The bank of lights on the head (top) indicate which line of the cable is being tested. If there is no continuity for that line, it will not light! This would mean your cable has an issue and needs to be investigated and fixed! If there is continuity, a light will be lit on the head and remote bank of lights (bottom). The bottom bank indicates where the line is connected on the other end. This line # should be the same on the top and bottom (for non-crossover cables). If it's not, the cable ordering is incorrect and needs to be fixed! If multiple lights are lit on the bottom, then there is a short between lines and needs to be fixed!
+            Congrats! You now know how to test a cable! Or at least have gotten a crash course! :) If you need more explanation, head on over to the hardware hacking village!
+            </li>
           <li>Congrats! You now know how to test a cable! Or at least have gotten a crash course! :) If you need more explaination, head on over to the hardware hacking village!</li> 
         </br></br>
         <h3 id="modify">How to Modify the 555 timer Circuit</h3>
-          <p>The badge uses a 555 timer in an astable configuration to create a pulse that in turn increments the 4017, such that a new line of the LAN cable is tested. More details on the <a href="about.html">about page</a>. In an astable circuit, the output voltage alternates between high and low on a continuous basis, without any interraction. This oscillation is controlled by the values of 3 passive components: 1 capacitor and 2 resistors. Varying the parts with make it oscillate faster or slower! Here is an astable configured circuit:</p>
+          <p>The badge uses a 555 timer in an astable configuration to create a pulse that in turn increments the 4017, such that a new line of the LAN cable is tested. More details on the about page. When the 555 timer is in an astable circuit, the output voltage alternates between high and low on a continuous basis, without any interaction. This oscillation is controlled by the values of 3 passive components: 1 capacitor and 2 resistors. Varying these parts will make it oscillate faster or slower! Here is an astable configured circuit:</p>
           <img class="img-fluid" src="activites_images\astable-555-circuit.webp"></br></br>
-          <p> Using the schematic on the <a href="about.html">about page</a> and <a href="ibom.html">intereactive BOM</a> (or your badge), can you figure out which components on the badge control the oscillation?</p>
+          <p> Using the schematic on the <a href="about.html">about page</a> and the <a href="ibom.html">interactive BOM</a> (or your badge), can you figure out which components on the badge control the oscillation?</p>
           <details>
             <summary>Click for Answer</summary>
               <p>R1, R2, and C2 are the components on the back of the badge, at the top!</p>
           </details>
         </br></br>
-          <p> Using the <a href="ibom.html">intereactive BOM</a>, can you figure out their values?</p>
+          <p> Using the <a href="ibom.html">interactive BOM</a>, can you figure out their values?</p>
           <details>
             <summary>Click for Answer</summary>
               <p>R1 = 10k Ω, R2 = 150k Ω, and C2 = 4.7 uF</p>
@@ -120,16 +122,17 @@
             <p>roughly 1 hz... aka about a half second on and off, with one full cycle taking 1 second</p>
         </details>
       </br></br>
-      <p>You now should have a decent understanding how the 555 timer is configured on your badge! Play with the calculator you found to theoritically see how fast or slow you could get your badge to oscillate!</p>
-      <p>Enough theory... now's the time to do it for real! Head over the the hardware hacking village if you are not already there! </p> 
+      <p>You now should have a decent understanding how the 555 timer is configured on your badge! Play with the calculator you found to theoretically see how fast or slow you could get your badge to oscillate!</p>
+      <p>Enough theory... now's the time to do it for real! Head over to the hardware hacking village if you are not already there! </p> 
       <p>First decide what changes you are going to make using your 555 calculator. Creativity and experimentation with the calculator can limit how many parts you need to remove/add. Work with the village volunteers to verify we have the parts you want to use before preceding! You may need to change your plans depending on what is available. Don't start removing things until you have the replacement parts in hand. These are the <a href="https://www.amazon.com/BOJACK-Capacitor-Multilayer-Monolithic-Assortment/dp/B085RDTCCV/">capacitors</a> and <a href="https://www.amazon.com/BOJACK-Values-Resistor-Resistors-Assortment/dp/B08FD1XVL6/">resistors</a> the village has.</p>
-      <p>With your parts in hand, you can now remove the parts you want to change. Before you start, ensure your badge is OFF! The badge uses surface mount parts. To remove, use a globular amount (technical term) of solder on your iron, such that both soldered ends of the part you wish to remove are being touched/heated by the glob. Then simply swipe the part off! More than likely the small part is stuck on the glob on the iron, have tweezers ready to flick it off. Or use a tip cleaning sponge to remove.</p>
+      <p>With your parts in hand, you can now remove the parts you want to change. Before you start, ensure your badge is OFF or remove the battery! The badge uses surface mount parts. To remove, use a globular amount (technical term) of solder on your iron, such that both soldered ends of the part you wish to remove are being touched/heated by the glob. Then simply swipe the part off! More than likely the small part is stuck on the glob on the iron, have tweezers ready to flick it off. Or use a tip cleaning sponge to remove.</p>
       <img class="img-fluid" src="activites_images\removal.gif">
-      <p>Now its time to add the new part! For ease, these parts a through-hole parts. They are meant to go through holes on the PCB (printed circuit board), but for our purposes we will be soldering them to the surface mount pads. Bend and trim the legs of your new part such that they are well positioned for both sides of the surface pads. You can make this as tidy or as messy as you want! Solder one leg. Now readjust the second leg, and solder it! Booya! New part is on!</p>
+      <p>Now its time to add the new part! For ease, these parts are through-hole parts. They are meant to go through holes on the PCB (printed circuit board), but for our purposes we will be soldering them to the surface mount pads. Bend and trim the legs of your new part such that they are well positioned for both sides of the surface pads. You can make this as tidy or as messy as you want! Solder one leg. Now readjust the second leg, and solder it! Booya! New part is on!</p>
       <img class="img-fluid" src="activites_images\add.gif">
-      <p>Now turn your badge on and bask in the glory of your newly modifed badge! Pretty cool huh? Nice work!</p>
+      <p>Now repeat the process for all the parts neccesary for your plan!</p>
+      <p>All done? Turn your badge on and bask in the glory of your newly modified badge! Pretty cool huh? Nice work!</p>
       <img class="img-fluid" src="activites_images\speedtest.gif">
-      <p>I hear there is a CTF challenge that has to do with the 555 timing circuit...</p>
+      <p>I hear there is a CTF challenge that has something to do with the 555 timing circuit...</p>
       </main>
   
       <footer class="mt-auto text-white-50">
